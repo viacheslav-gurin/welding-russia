@@ -1,0 +1,77 @@
+// Стили для выпадающего меню
+
+.menu-container {
+    display: none;
+    position: absolute;
+    top: 3rem;
+    left: 0;   
+    width: 20rem;
+    height: auto;
+    font-size: inherit;
+    // box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    box-sizing: border-box;
+    background-color: #E2E2E2;
+
+    p {
+        padding: 1rem;
+        font-weight: 500;
+        background-color: #E2E2E2;
+        color: inherit;
+    }
+}
+
+.level-1,
+.level-2,
+.level-3,
+.level-4 {
+    list-style: none;
+    background-color: #E2E2E2;
+    box-sizing: border-box;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.level-1 {    
+    display: block;
+    
+    li {
+        padding: 1rem;
+        position: relative;
+        .level-2 {
+            display: none;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 100%;
+        }
+    }
+
+    .level-3 {
+        li {
+            padding-left: 2rem;
+        }
+    }
+    .level-4 {
+        li {
+            padding-left: 4rem;
+        }
+    }
+    li:hover, li a:hover {
+        background-color: rgb(211, 211, 211);
+        cursor: pointer;
+        .level-2 {
+            display: block;
+        }
+    }
+}
+
+// Показываем выпадающее меню при наведении на невидимую область слева
+.nav-bar__left:hover {
+    .menu-container {
+        display: block;
+    }
+}

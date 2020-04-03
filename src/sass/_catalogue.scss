@@ -1,0 +1,288 @@
+.main-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 95vh;
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: .3rem;
+    font-size: 1.4rem;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar {    
+    &__left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3rem;
+        height: 3rem;
+        background-color: #E2E2E2;
+        border-radius: .3rem 0 0 0;
+    }
+    &__middle {
+        position: absolute;
+        top: 0;
+        left: 3rem;
+        right: 3rem;
+        height: 3rem;
+        background-color: #E2E2E2;
+    }
+    &__right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3rem;
+        height: 3rem;
+        background-color: #E2E2E2;
+        border-radius: 0 .3rem 0 0;
+    }
+}
+
+.goods {
+    &-container {
+        height: 100%;
+        padding: 5rem 2rem 2rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 1.2rem;
+        vertical-align: top;
+        font-size: 1.2rem;
+
+        // grid-template-columns: 1fr;
+        // grid-template-rows: repeat(12, 1fr);
+
+    }
+
+    &-item {
+        padding: 1rem 1.5rem;
+        background-color: #fff;
+        border-radius: .3rem;
+        display: grid;
+        grid-template-columns: 12rem 1fr;
+        grid-template-rows: repeat(5, min-content);
+        align-items: start;
+        align-content: space-between;
+        
+        &__id {
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgb(170, 170, 170);
+            grid-column: 2 / 3;
+        }
+
+        &__image {            
+            object-fit: cover;
+            width: auto;
+            height: 10rem;
+            justify-self: center;
+            align-self: center;
+            grid-row: 2 / 7;
+        }
+        &__name {
+            font-size: 1.4rem;
+            font-weight: 600;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+
+                &:hover,
+                &:active {
+                    color: #F1471D;
+                }
+            }
+        }
+        &__airing {
+            margin-bottom: 1rem;
+        }
+        &__price {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #F1471D;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+}
+
+.btn {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    justify-self: start;
+    border: none;
+    padding: 1rem;
+    border-radius: .3rem;
+    border: 1px solid #F1471D;
+    background-color: #fff;
+    color: #F1471D;
+    // width: 100%;
+    cursor: pointer;
+    
+    &:focus { outline: none; }
+
+    &:hover,
+    &:active {
+        border: 1px solid #F1471D;
+        background-color: #F1471D;
+        color: #fff;
+    }
+
+    &__cta {
+        background-color: #F1471D;
+        color: #fff;
+        &:hover,
+        &:active {
+            border: 1px solid #F1471D;
+            background-color: rgb(216, 66, 29);
+            color: #fff;
+        }
+    }
+}
+
+.nav-bar__right:hover ~ .goods-container {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-gap: .6rem;
+    padding: 6rem 2rem 2rem 2rem;
+
+    .goods-item {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        //grid-auto-flow: column;
+        align-items: center;
+        align-content: center;
+        padding: 0 2rem;
+        
+
+        &__id {
+            color: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            margin-bottom: 0;
+            grid-column: 1 / 2;
+        }
+
+        &__image {            
+            height: 3rem;
+            grid-column: 2 / 3;
+            grid-row: auto;
+            justify-self: start;
+            align-self: center;
+        }
+
+        &__name {
+            font-size: inherit;
+            font-weight: 600;
+            grid-column: 3 / 4;
+        }
+        &__sizes {
+            grid-column: 4 / 5;
+        }
+        &__power {
+            grid-column: 5 / 6;
+        }
+        &__voltage {
+            grid-column: 6 / 7;
+        }
+        &__airing {
+            grid-column: 7 / 8;
+            align-self: center;
+            margin-bottom: 0;
+        }
+        &__price {
+            font-size: 1.6rem;
+            grid-column: 8 / 9;
+        }      
+    }    
+
+    .goods-item:first-child .goods-item {
+
+        &__id {              
+            &::before {
+                content: "Артикул";
+                position: absolute;
+                top: 3.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: rgb(170, 170, 170);
+            }
+        }
+
+        &__name {    
+            &::before {
+                content: "Наименование";
+                position: absolute;
+                top: 3.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: rgb(170, 170, 170);
+            }
+        }
+        &__sizes {
+            &::before {
+            content: "Размеры";
+            position: absolute;
+            top: 3.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: rgb(170, 170, 170);
+            }
+        }
+        &__power {
+            &::before {
+                content: "Мощность";
+                position: absolute;
+                top: 3.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: rgb(170, 170, 170);
+            }
+        }
+        &__voltage {
+            &::before {
+                content: "Напр-е";
+                position: absolute;
+                top: 3.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: rgb(170, 170, 170);
+            }
+        }
+        &__airing {
+            &::before {
+                content: "Охлаждение";
+                position: absolute;
+                top: 3.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: rgb(170, 170, 170);
+            }
+        }
+        &__price {
+            &::before {
+                content: "Цена";
+                position: absolute;
+                top: 3.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: rgb(170, 170, 170);
+            }
+        }
+    }
+
+    .btn {
+        padding: .5rem;
+        width: 80%;
+        grid-column: 9 / 10;
+    }
+}
+
+.dashed-border {
+    border: 2px dashed #F1471D;
+}
