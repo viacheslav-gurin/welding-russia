@@ -2,7 +2,7 @@ var dragSouceElement = null;
 
 function handleDragStart(event) {
     var dragIcon = document.createElement('img');
-    dragIcon.src = '/src/img/logo_small.png';
+    dragIcon.src = 'src/img/logo_small.png';
     dragIcon.width = 30;
     event.dataTransfer.setDragImage(dragIcon, -10, -10);
     dragSouceElement = this;
